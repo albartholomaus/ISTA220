@@ -1,0 +1,16 @@
+using System;
+
+namespace TestHello
+{
+    class Program //needs to be program in a console app
+    {
+        static void Main(string[] args)  // static means only on method named main void is the retun type, void = return nothing. every methond has parthences, args is name.
+        {
+            string name = "Tony"; //string is a type, String in a class class and types are the smae thing
+                                   // sting is a class/type,,name is the variable, 
+                                   // $ = interpolation, interpolated scripe
+                                   // + = concatanation opperator
+            Console.WriteLine($"Hello, {name}");  // or " Hello," + name
+        }
+    }
+}
