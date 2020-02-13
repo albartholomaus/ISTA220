@@ -3,22 +3,22 @@
 ### Professor: *Mr. Carter*
 
 1.  ##### What is a class? According to the book, what does a class “arrange?”
-- *A class is short for classification, arrange information and behavior into a meaningful entity.*
+- *A class is short for classification, arrange information and behavior into a meaningful entity.is a type*
 ---
 2.  #####	What are the two purposes of encapsulation?
-- *To combine methods and data within a  class
+- *To combine methods and data within a class, support classification
 •	To control the accessibility of the methods and data; in other words, to control the use of the class.*
 ---
 3.  ##### How do you instantiate an instance of a class? How do you access that instance?
-- *The word class, you can access it by using its name in syntax.*
+- *use the new key word. go to heap to save space that it needs and return a location to the stack.*
 ---
 4.  ##### What is the default access of the fields and methods of a class? How do you change the default?
 - *The default is private, you change it by setting it to public.*
 ---
 5.  ##### What is the syntax for writing a constructor?
-- *Public same-name-as-the-class().*
+- *Public same-name-as-the-class().tells new how much space is needed.*
 ---
-6.  ##### What is the difference between class fields and methods, and instance fields ad methods? How do you create class fields and methods?
+6.  ##### What is the difference between class fields and methods, and instance fields and methods? How do you create class fields and methods?
 - *Fields are declared variables, methods are a series of statements.
 •	Data type name = data, access level return value name (arguments).*
 ---
@@ -29,10 +29,10 @@
 - *For security reasons.*
 ---
 9.  ##### What is polymorphism as this term is used in computer science? This is not in the book.
-- *Object of a derived class may be treated as a base class; base classes can implement virtual methods.*
+- *Object of a derived class may be treated as a base class; base classes can implement virtual methods. think football,deck of cards,flute*
 ---
 10. ##### What is message passing as this term is used in computer science? This is not in the book.
-- *Distinguishes it from method calls used in abstract methods change components without changing the signature, multiple methods can call the same info.*
+- *Distinguishes it from method calls used in abstract methods change components without changing the signature, multiple methods can call the same info. use an object that and you don't need to know what it does.*
 ---
 11. #####	What was the first object-oriented programming language?
 - *SIMULA.*

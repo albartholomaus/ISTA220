@@ -1,0 +1,125 @@
+using System;
+
+namespace EX3a
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("THis is the petting farm");
+            animal farm = new animal();
+
+            Horse horses = new Horse();
+            horses.jonny();
+            horses.Link();
+            horses.Gannon();
+
+            cat cats = new cat();
+            cats.tali();
+            cats.zelda();
+            cats.lady();
+
+            dog dogs = new dog();
+            dogs.amber();
+            dogs.grizly();
+            dogs.bear();
+        }
+    }
+
+    class Horse
+    {
+        public void jonny()
+        {
+            animal jonny = new animal("alex");//dont get this as to why i make the instance here
+            jonny.speak("jack", "horse", "give me your money");
+            jonny.eat("your money");
+        }
+
+        public void Link()
+        {
+            animal link = new animal("link");
+            link.speak("link", "horse", "awwwwwwwwww");
+            link.eat("ganon");
+        }
+        public void Gannon()
+        {
+            animal gannon = new animal("Gannon");
+            gannon.speak("gannon", "your distroyer", "NOOOOOO");
+            gannon.eat("strawberries");
+        }
+    }
+    class cat
+    {
+        public void tali()
+        {
+            animal tali = new animal("tali");//dont get this as to why i make the instance here probably because you cant call the methods 
+            tali.speak("tali", "cat", "meow");
+            tali.eat("anything but fruit");
+            
+        }
+
+        public void zelda()
+        {
+            animal zelda = new animal("zelda");
+            zelda.speak("zelda", "cat", "meow meow");
+            zelda.eat("dog food");
+        }
+        public void lady()
+        {
+            animal lady = new animal("lady");
+            lady.speak("lady", "your friend", "I love you");
+            lady.eat("purple");
+        }
+    }
+    class dog
+    {
+        public void bear()
+        {
+            animal bear = new animal("bear");//dont get this as to why i make the instance here probably because you cant call the methods 
+            bear.speak("bear", "dog", "woof");
+            bear.eat("anything");
+
+        }
+
+        public void amber()
+        {
+            animal amber = new animal("amber");
+            amber.speak("amber", "dog", "bark bark");
+            amber.eat("dog food...cat food");
+        }
+        public void grizly()
+        {
+            animal grizly = new animal("grizly");
+            grizly.speak("grizly", "dog", "will be misseed");
+            grizly.eat("purple");
+        }
+    }
+    //this is a method for callinf the console write lines 
+    public class animal
+    {
+        public string name;
+
+        public animal()//default constructor
+        {
+            //why does this need to be blank
+        }
+
+        public animal(string name)
+        {
+            this.name = name;
+
+            Console.WriteLine($"THis is a {name}");
+        }
+        public string speak(string name, string breed, string sound) // why not declare the variables up above
+        {
+            Console.WriteLine($"I'am a {name}, im a {breed}, and I say {sound}."); 
+            return name;//why return just the name 
+        }
+
+        public string eat(string food)// method for food 
+        {
+            Console.WriteLine($"I like to eat {food}");
+            return food;
+        }
+    }  
+}

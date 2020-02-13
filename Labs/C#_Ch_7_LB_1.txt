@@ -1,0 +1,86 @@
+using System;
+
+namespace Classes
+{//makes space on stack
+    class Program //a type --of program
+    { //makes space on stack 
+        static void doWork()//declares method 
+        {
+            Point origin = new Point();                                                   //point is a type, the nane (=) assignment operator  new goes to memory goes to heap, saves the space it needs then retuns the address to the stack. //orgin contains the address 
+                                                                                          //point is the constructor 
+            Point bottomRight = new Point(1366, 768);
+            //here we have 2 point objects or 2 instances of the class
+            double distance = origin.DistanceTo(bottomRight);
+            Console.WriteLine($"Distance is: {distance}");
+           //below this point can be at the top.
+            Point maxwell = new Point(1, 1);
+            Point Christy = new Point(4, 5);
+            distance = maxwell.DistanceTo(Christy); 
+            Console.WriteLine($"Distance is: {distance}");
+            Console.WriteLine($"Number of Point objects: {Point.ObjectCount()}." +
+                $" This is a vlue of object Count.");
+        }
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                doWork();//invokes a method
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+#region Using directives
+
+
+#endregion
+
+using System;
+
+namespace Classes //same namespace as program = same program 
+{
+
+    class Point//declares a class named point,a type //constructor, same as class 
+    {
+        private int _x = 0; //why declare it 0? is to so your program does not beak and makes it more stable. this is in instace field,has its own copy
+        private int _y = 0; //access odifier,type,name,assignment operator, value 
+        private static int objectCount = 0; //has its own independent copy = an instance-----class field is shared aka STATIC
+        //private int _y = 0;
+
+        public Point()                                                        //this is the constructor ///needs acess mdifier and NO retrun type 
+        {
+            Console.WriteLine("Default constructor called");                   //console needs using.systems
+            _x = -1;
+            _y = -1;
+            objectCount++;
+        }
+        public double DistanceTo(Point other)
+        {
+            int xDiff = _x - other._x;
+            int yDiff = _y - other._y;
+            double distance = Math.Sqrt((xDiff * xDiff) + (yDiff * yDiff));
+            return distance;
+        }
+       public Point(int eckx, int ecky)
+      {
+
+            Console.WriteLine($"x:{eckx}, y:{ecky}");                              //this is what the constructor does
+            _x = eckx;//best practice to make sure your variables have different names 
+            _y = ecky;//this. is an AS for this instance and not needed here
+            objectCount++;             //_y=y
+        }
+        public static int ObjectCount()  //herer static means shared class method
+        {
+           return objectCount;
+        }
+    }
+}
+//plagan thirum
+
+
+
+

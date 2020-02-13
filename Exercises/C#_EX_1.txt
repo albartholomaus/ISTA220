@@ -24,7 +24,7 @@ namespace C_Sharp_Ex_1
             Console.Write("Enter the volume ");
             string strvolume = Console.ReadLine();
             int intvolume = int.Parse(strvolume);
-            double volume = ((4 / 3) * Math.PI * intvolume * 3) / 2;
+            double volume = ((4 / 3) * Math.PI * intvolume*intvolume*intvolume) / 2;
             Console.WriteLine($"This is the Volume for your circle: {volume}");
             
             Console.WriteLine("");

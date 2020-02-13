@@ -1,0 +1,119 @@
+namespace StructsAndEnums
+{
+    struct Date
+    {
+        private int year;
+        private Month month;
+        private int day;
+
+        public Date(int ccyy, Month mm, int dd)
+        {
+            this.year = ccyy - 1900;
+            this.month = mm;
+            this.day = dd - 1;
+        }
+
+        public override string ToString() ///why override? we are creating a 2 string method and telling the computer to not use it so we can use our own
+        {
+            string data = $"{this.month} {this.day + 1} {this.year + 1900}";
+            return data;
+        }
+        public void AdvanceMonth()
+{
+this.month++;
+if (this.month == Month.December + 1)
+{
+this.month = Month.January;
+this.year++;
+}
+}
+    }
+
+}
+// call a instance method 
+//make a new object 
+//then the call of the method 
+
+
+
+#region Using directives
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+#endregion
+
+namespace StructsAndEnums
+{
+    class Program
+    {
+        static void doWork()
+        {
+            Month first = Month.January;
+            Console.WriteLine(first);
+            first++;
+            Console.WriteLine(first);
+            Month last = Month.December;
+            Console.WriteLine( last );
+            last++;
+                first++;
+            Console.WriteLine(last);
+            last++;
+                    Console.WriteLine(last);
+
+            Console.WriteLine("_____________");
+            Date defaultDate = new Date(0,0,0);
+            Console.WriteLine(defaultDate);
+
+            Date weddingAnniversary = new Date(2017, Month.July, 4);
+            Console.WriteLine(weddingAnniversary);
+           
+            Date weddingAnniversaryCopy = weddingAnniversary;
+            Console.WriteLine($"Value of copy is {weddingAnniversaryCopy}");
+
+            weddingAnniversary.AdvanceMonth();
+            Console.WriteLine($"New value of weddingAnniversary is {weddingAnniversary}");
+            Console.WriteLine($"Value of copy is still {weddingAnniversaryCopy}");
+        }
+
+        static void Main()
+        {
+
+            try
+            {
+                doWork();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+
+
+using System;
+
+namespace StructsAndEnums
+{
+    enum Month
+    {
+        January, February, March, April,   // is an object but is called an enumeration
+        May, June, July, August,
+        September, October, November, December
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
