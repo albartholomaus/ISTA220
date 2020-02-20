@@ -1,0 +1,121 @@
+using System;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] ArrayA = new int[] { 0, 2, 4, 6, 8, 10 };
+            int[] ArrayB = new int[] { 1, 3, 5, 7, 9 };
+            int[] ArrayC = new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9 };
+
+            Console.WriteLine("This is for counting and summing:");
+            counting(ArrayA);
+            Console.WriteLine(" ");
+
+            Console.WriteLine("This is reversing the arrays");
+            Reversing(ArrayA, ArrayB, ArrayC);
+            Console.WriteLine(" ");
+
+            Console.WriteLine("This is rotating");
+            Rotating(ArrayA, ArrayA.Length, 2);
+            Rotating(ArrayB, ArrayB.Length, 3);
+            Rotating(ArrayC, ArrayC.Length, 4);
+            Console.WriteLine(" ");
+
+            Console.WriteLine("This is the sort ");
+            bubblesort(ArrayC);
+            Console.WriteLine(" ");
+            Console.ReadLine();
+
+        }
+
+        private static void bubblesort(int[] arrayC)
+        {
+            for (int k = 0; k < arrayC.Length - 1; k++)
+            {
+                for (int j = 0; j < arrayC.Length - 1; j++)
+                {
+                    if (arrayC[j] > arrayC[j + 1])
+                    {
+                        int TempSwapVar = arrayC[j];
+                        arrayC[j] = arrayC[j + 1];
+                        arrayC[j + 1] = TempSwapVar;
+                    }
+                }
+            }
+
+            foreach (var printarracy in arrayC)
+            {
+                Console.Write(printarracy + " ");
+            }
+        }
+
+        private static void Rotating(int[] array, int size, int re)
+        {
+
+
+            for (int i = 0; i < re; i++)
+            {
+                int temp = array[0];//stores first element of the array
+                //Console.WriteLine($"This is what is in the index {temp}.");
+                for (int j = 1; j < size; j++)
+                {
+                    //Console.WriteLine($"This is the first value {temp}. It is in a temp variable.");
+                    //Console.WriteLine($"this is what is shifting {array[j]}.  Shifts go left from {j} to {j-1}");//prints the index that is moving
+                    array[j - 1] = array[j]; //array[j] is assigning the currents elements value, pointed by the loop varable to previous element
+                }
+                array[size - 1] = temp;//puts first element in the back of the array
+                //Console.WriteLine($"put {temp} at the end of the array.");
+            }
+            for (int i = 0; i < size; i++)//this just prints it out
+            {
+                Console.Write(array[i]);
+            }
+            Console.WriteLine(" ");
+        }
+
+        private static void Reversing(int[] ArrayA, int[] ArrayB, int[] ArrayC)
+        {
+            Console.Write("This is Array A: ");
+            for (int i = ArrayA.Length - 1; i >= 0; i--)
+            {
+                Console.Write(ArrayA[i]);
+            }
+            Console.WriteLine(" ");
+            Console.Write("This is Array B: ");
+            for (int i = ArrayB.Length - 1; i >= 0; i--)
+            {
+                Console.Write(ArrayB[i]);
+            }
+            Console.WriteLine(" ");
+            Console.Write("This is Array C: ");
+            for (int i = ArrayC.Length - 1; i >= 0; i--)
+            {
+                Console.Write(ArrayC[i]);
+            }
+            Console.WriteLine(" ");
+        }
+
+        private static void counting(int[] ArrayA)
+        {
+            double avg = 0;
+            int sum = 0;
+            int count = 0;
+
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                sum += ArrayA[i];
+                count += i - 1;
+            }
+
+            avg = sum / count;
+            Console.WriteLine($"The sum is: {sum}");
+            Console.WriteLine($"The count is: {count}");
+            Console.WriteLine($"The mean is: {avg}");
+            Console.WriteLine(" ");
+        }
+
+    }
+}
