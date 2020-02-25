@@ -1,0 +1,468 @@
+using System;
+
+namespace EX6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //people
+            Console.WriteLine("UNit People");
+            FirstSgt fields = new FirstSgt();
+            fields._FirstSgt("Captains what to do");
+            fields.YellsAt("work", "1stSgt");
+            fields.Eats("salad");
+            fields.Sleeps(" 100%");
+            fields.Works("none");
+
+            Console.WriteLine("");
+            Sgt Barthomomaus = new Sgt();
+            Barthomomaus._Sgt("LCPL's");
+            Barthomomaus.YellsAt("work", "1stSgt");
+            Barthomomaus.Eats("protein");
+            Barthomomaus.Sleeps("50%");
+            Barthomomaus.Works("ever");
+
+            Console.WriteLine("");
+            LCpl Bart = new LCpl();
+            Bart._LCpl("everyone else tells them to do");
+            Bart.YellsAt("work", "Sgt");
+            Bart.Eats("most food");
+            Bart.Sleeps("none");
+            Bart.Works("most");
+            
+            Console.WriteLine("");
+            Console.WriteLine("");
+            //weapons
+            m16 m6t = new m16();
+            m6t.M16();
+            m6t.Shoots("M16","Bang");
+
+            Console.WriteLine("");
+            pistol nine = new pistol();
+            nine.M9();
+            nine.Shoots("9mm", "pop");
+
+            //vics
+            Console.WriteLine("");
+            Seventons ton = new Seventons();
+            ton._Ton("7Ton");
+            ton.Runs("7Ton");
+            ton.Empty("7ton");
+
+            Console.WriteLine("");
+            HMMWV HV = new HMMWV();
+            HV._HVV("NOT");
+            HV.Runs("HMMWV");
+            HV.Empty("HMMWV");
+
+            //equiptment
+            Console.WriteLine("");
+            computer PC = new computer();
+            PC._computer("Supply");
+            PC.Works("Ccomputer","ME");
+            PC.Breaks("Ccomputer", "You");
+
+            Console.WriteLine("");
+            keyboard newkeyboard = new keyboard();
+            newkeyboard._keyboard("1stSgt");
+            newkeyboard._keyboard("Sgt");
+            newkeyboard._keyboard("LCpl");
+            newkeyboard.Works("Ccomputer", "ME");
+            newkeyboard.Breaks("Ccomputer", "You");
+
+
+            FieldDayGear FDG = new FieldDayGear();
+            FDG._Gear("1stSgt");
+            FDG._Gear("Sgt");
+            FDG._Gear("LCpl");
+            FDG.Works("Cleans","LCPL");
+            FDG.Breaks("LOOSE","LCpl");
+        }
+    }
+
+    //base classes
+    class weapons
+    {
+        public virtual void Shoots(string gun, string noise)
+        {
+            string _gun = "";
+            string _noise = "";
+            _gun = gun;
+            _noise = noise;
+
+            Console.WriteLine($"This {_gun} goes {_noise}");
+        }
+
+    }
+    class personnel
+    {
+        public virtual void YellsAt(string thisthing, string rank)
+        {
+            string _thisthing = "THIS";
+            string _rank = "RANK";
+
+            _thisthing = thisthing;
+            _rank = rank;
+
+            Console.WriteLine($"Go do {_thisthing} becasue I the {_rank} said so.");
+        }
+        public virtual void Eats(string food)
+        {
+            string _food ="junk";
+            _food = food;
+
+            Console.WriteLine($"puts {_food} in face");
+            Console.WriteLine("Becasue my body can take it.");
+     
+        }
+        public virtual void Sleeps(string time)
+        {
+            string _time = "";
+            _time = time;
+            Console.WriteLine($"I sleep this amount {_time} ");
+        }
+        public virtual void Works(string work)
+        {
+            
+            string _work = "";
+            _work = work;
+            Console.WriteLine($"I do {_work} amount of work");
+        }
+    }
+    class vehicles
+    {
+        public virtual void Runs(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {vic} works");
+        }
+        public virtual void Empty(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {_vic}");
+        }
+
+    }
+    class equiptment
+    {
+        public virtual void Works(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            _stuff = stuff;
+            Console.WriteLine($"This {_stuff} does work be cause of{rank}");
+        }//this one take 2 but has 1.
+        public virtual void Breaks(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            string _rank = "rank";
+            _stuff = stuff;
+            _rank = rank;
+            Console.WriteLine($"This {_stuff} does not work because {rank} brook it");
+        }
+    }
+  
+    //weapons
+    class m16 : weapons
+    {
+        public void M16()
+        {
+            Console.WriteLine($"m16 have long barrels");
+        }
+        public override void Shoots(string gun, string noise)
+        {
+            string _gun = "";
+            string _noise = "";
+            _gun = gun;
+            _noise = noise;
+
+            Console.WriteLine($"This {_gun} goes {_noise}");
+            Console.WriteLine("this wepon takes 5.56 rounds ");
+        }
+    }
+    class pistol : weapons
+    {
+        public void M9()
+        {
+            Console.WriteLine($"M9's are cool");
+        }
+        public override void Shoots(string gun, string noise)
+        {
+            string _gun = "";
+            string _noise = "";
+            _gun = gun;
+            _noise = noise;
+
+            Console.WriteLine($"This {_gun} goes {_noise}");
+            Console.WriteLine("this wepon takes 9mm rounds ");
+        }
+    }
+
+    //ranks
+    class FirstSgt : personnel
+    {
+        public void _FirstSgt(string rank)
+        {
+            Console.WriteLine($"FirstSgt's sit in their office and tells {rank} what to do.");
+        }
+        public override void YellsAt(string thisthing, string rank)
+        {
+            string _thisthing = "THIS";
+            string _rank = "RANK";
+
+            _thisthing = thisthing;
+            _rank = rank;
+
+            Console.WriteLine($"Go do {_thisthing} becasue I the {_rank} said so.");
+            Console.WriteLine("This is the way");
+        }
+        public override void Eats(string food)
+        {
+            string _food = "junk";
+            _food = food;
+
+            Console.WriteLine($"puts {_food} in face");
+
+        }
+        public override void Sleeps(string time)
+        {
+            string _time = "";
+            _time = time;
+            Console.WriteLine($"I sleep this amount {_time} ");
+            Console.WriteLine("otherwise somebody will pay");
+        }
+        public override void Works(string work)
+        {
+
+            string _work = "";
+            _work = work;
+            Console.WriteLine($"I do {_work} amount of work");
+            Console.WriteLine("Because I supervise");
+        }
+    }
+    class Sgt : personnel
+    {
+        public void _Sgt(string rank)
+        {
+            Console.WriteLine($"Sgt's are the boss of {rank}");
+        }
+        public override void YellsAt(string thisthing, string rank)
+        {
+            string _thisthing = "THIS";
+            string _rank = "RANK";
+
+            _thisthing = thisthing;
+            _rank = rank;
+
+            Console.WriteLine($"Go do {_thisthing} becasue I the {_rank} said so.");
+            Console.WriteLine("After I take to adimn or somebody for an hour");
+        }
+        public override void Eats(string food)
+        {
+            string _food = "junk";
+            _food = food;
+
+            Console.WriteLine($"puts {_food} in face");
+            Console.WriteLine("then goes to the gym");
+
+        }
+        public override void Sleeps(string time)
+        {
+            string _time = "";
+            _time = time;
+            Console.WriteLine($"I sleep this amount {_time} ");
+            Console.WriteLine("because LCpl wake them up because they dont have money or need a ride");
+        }
+        public override void Works(string work)
+        {
+
+            string _work = "";
+            _work = work;
+            Console.WriteLine($"I do {_work} amount of work");
+        }
+    }
+    class LCpl : personnel
+    {
+        public void _LCpl(string rank)
+        {
+            Console.WriteLine($"they do stuff that {rank}");
+        }
+
+        public override void Sleeps(string time)
+        {
+            string _time = "";
+            _time = time;
+            Console.WriteLine($"I sleep this amount of {_time} ");
+            Console.WriteLine("this is this because I played video games till 0200");
+        }//done
+
+        public override void YellsAt(string thisthing, string rank)
+        {
+            string _thisthing = "THIS";
+            string _rank = "RANK";
+
+            _thisthing = thisthing;
+            _rank = rank;
+
+            Console.WriteLine($"Go do {_thisthing} becasue {_rank} said so.");
+        }
+        public override void Eats(string food)
+        {
+            string _food = "junk";
+            _food = food;
+
+            Console.WriteLine($"puts {_food} in face");
+
+        }
+        public override void Works(string work)
+        {
+            string _work = "";
+            _work = work;
+            Console.WriteLine($"I don't {_work} overtime");
+        }
+    }
+
+
+    //vechiles
+
+    class Seventons : vehicles
+    {
+        public void _Ton(string This)
+        {
+            Console.WriteLine($"It goes this {This}");
+        }
+        public override void Runs(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {vic} works");
+            Console.WriteLine($"it takes 2 people");
+        }
+        public override void Empty(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {_vic} burn j48");
+            Console.WriteLine($"burn fuelk fast");
+        }
+    }
+    class HMMWV : vehicles
+    {
+        public void _HVV(string speed)
+        {
+            Console.WriteLine($"HMMWV go {speed} fast");
+        }
+        public override void Runs(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {vic} works");
+        }
+        public override void Empty(string vic)
+        {
+            string _vic = "";
+            _vic = vic;
+
+            Console.WriteLine($"This {_vic}");
+        }
+    }
+
+    //equiptment
+    class computer : equiptment, 
+    {
+        public void _computer(string rank)
+        {
+            Console.WriteLine($" I belongs to {rank}");
+            Console.WriteLine("BUt uyse by the whole unit");
+        }
+        public override void Works(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            _stuff = stuff;
+            Console.WriteLine($"This {_stuff} does work because of{rank}");
+            Console.WriteLine($"The is put back in the lot");
+        }
+        public override void Breaks(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            string _rank = "rank";
+            _stuff = stuff;
+            _rank = rank;
+            Console.WriteLine($"This {_stuff} does not work because {rank} brook it");
+        }
+
+    }
+    class keyboard : equiptment
+    {
+        public void _keyboard(string rank)
+        {
+            if(rank == "1stSgt")
+            {
+                Console.WriteLine("The keybord will never work..ever");
+            }
+            if (rank == "Sgt")
+            {
+                Console.WriteLine("The keybord has had a lot of use");
+            }
+            if (rank == "LCpl")
+            {
+                Console.WriteLine("it doesnt work because its lost.");
+            }
+        }
+        public override void Works(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            _stuff = stuff;
+            Console.WriteLine($"This {_stuff} does work be cause of{rank}");
+        }//this one take 2 but has 1.
+        public override void Breaks(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            string _rank = "rank";
+            _stuff = stuff;
+            _rank = rank;
+            Console.WriteLine($"This {_stuff} does not work because {rank} brook it");
+        }
+
+    }
+    class FieldDayGear : equiptment
+    {
+        public void _Gear(string gear)
+        {
+            if (gear == "1stSgt")
+            {
+                Console.WriteLine("HAHA clean");
+            }
+            if (gear == "Sgt")
+            {
+                Console.WriteLine("gives to LCpl");
+            }
+            if (gear == "LCpl")
+            {
+                Console.WriteLine("Does what its told");
+            }
+        }
+        public override void Works(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            _stuff = stuff;
+            Console.WriteLine($"This {_stuff} Cleans be cause of{rank}");
+        }
+        public override void Breaks(string stuff, string rank)
+        {
+            string _stuff = "stuff";
+            string _rank = "rank";
+            _stuff = stuff;
+            _rank = rank;
+            Console.WriteLine($"Dont {_stuff}  MY  STUFF {rank}");
+        }
+    }
+
+}
